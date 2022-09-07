@@ -1,4 +1,5 @@
-const arr = []
-arr.push('roy')
-arr.push('toy')
-console.log(arr)
+const arr = ['roy', 'joy', 'noy', 'moy']
+const op = JSON.stringify(arr)
+const oop = JSON.stringify(op)
+const ooop = JSON.stringify(oop)
+console.log(ooop)
