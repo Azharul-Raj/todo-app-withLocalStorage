@@ -72,14 +72,13 @@ const removeItem = (e) => {
 const render = () => {
     const storedArr = JSON.parse(localStorage.getItem('value'))
     const toDoContainer = document.getElementById('todo-list') 
-    const toDoValue = getInput('todo-text')
     if (storedArr) {
         storedArr.forEach(element => {
             const li = document.createElement('li')
             li.innerHTML = `
             <div id="single" class="flex justify-between my-2">
               ${element}
-              <button onclick="removeItem('${toDoValue}')" class="bg-green-400 px-2 rounded-lg text-white">Delete</button>
+              <button onclick="removeItem('${element}')" class="bg-green-400 px-2 rounded-lg text-white">Delete</button>
             </div>
             
             `

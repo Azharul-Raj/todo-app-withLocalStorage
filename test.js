@@ -1,5 +1,8 @@
-const arr = ['roy', 'joy', 'noy', 'moy']
-const op = JSON.stringify(arr)
-const oop = JSON.stringify(op)
-const ooop = JSON.stringify(oop)
-console.log(ooop)
+const a = 5 
+const b = 10
+const multiply = (a, b) => {
+    a = 10
+    return a*b
+}
+const output = multiply(a, b)
+console.log(output)
