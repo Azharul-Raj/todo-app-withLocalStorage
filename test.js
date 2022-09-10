@@ -1,8 +1,15 @@
-const a = 5 
-const b = 10
-const multiply = (a, b) => {
-    a = 10
-    return a*b
+const addPrompt = () => {
+    let result = prompt('Type a number')
+    if (!isNaN(result)) {
+        result = parseFloat(result)
+        alert(result + 200)
+    }
+    else {
+        alert('please write a number')
+    }
 }
-const output = multiply(a, b)
-console.log(output)
+const result = confirm('Do You Wanna See Your Website Location')
+if (result === true) {
+    //  go(window.location.href)
+    window.location.replace("http://www.w3schools.com");
+ }

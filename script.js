@@ -23,20 +23,26 @@ const saveStorage = (element) => {
     localStorage.setItem('value',stringified)
 }
 
-// plus btn event listener
-const addItem = () => {
+// display rendered value function
+const displayToDocument = (toDoText) => {
     const toDoContainer = document.getElementById('todo-list')
-    const toDoValue = getInput('todo-text')
-    if (toDoValue != '') {
-        const li = document.createElement('li')
+    const li = document.createElement('li')
         li.innerHTML = `
         <div id="single" class="flex justify-between my-2">
-          ${toDoValue}
-          <button onclick="removeItem('${toDoValue}')" class="bg-green-400 px-2 rounded-lg text-white">Delete</button>
+          ${toDoText}
+          <button onclick="removeItem('${toDoText}')" class="bg-green-400 px-2 rounded-lg text-white">Delete</button>
         </div>
         
         `
         toDoContainer.appendChild(li)   
+}
+
+// plus btn event listener
+const addItem = () => {
+    
+    const toDoValue = getInput('todo-text')
+    if (toDoValue != '') {
+        displayToDocument(toDoValue)
         const stringifiedToDo =toDoValue 
         console.log(stringifiedToDo)
         saveStorage(stringifiedToDo)
@@ -71,18 +77,10 @@ const removeItem = (e) => {
 // render value to display
 const render = () => {
     const storedArr = JSON.parse(localStorage.getItem('value'))
-    const toDoContainer = document.getElementById('todo-list') 
+     
     if (storedArr) {
         storedArr.forEach(element => {
-            const li = document.createElement('li')
-            li.innerHTML = `
-            <div id="single" class="flex justify-between my-2">
-              ${element}
-              <button onclick="removeItem('${element}')" class="bg-green-400 px-2 rounded-lg text-white">Delete</button>
-            </div>
-            
-            `
-            toDoContainer.appendChild(li)
+            displayToDocument(element)
         })
     }
     else {
